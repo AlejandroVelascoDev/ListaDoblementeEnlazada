@@ -20,7 +20,7 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n===== GESTOR DE PLAYLIST (Lista Doblemente Enlazada) =====");
+            System.out.println("\n GESTOR DE PLAYLIST (Lista Doblemente Enlazada) ");
             System.out.println("1. Agregar canción");
             System.out.println("2. Contar canciones");
             System.out.println("3. Mostrar canción en una posición");
@@ -28,7 +28,7 @@ public class Main {
             System.out.println("5. Imprimir todas las canciones");
             System.out.println("6. Eliminar canción por nombre");
             System.out.println("7. Eliminar canción por posición");
-            System.out.println("8. Concatenar con otra playlist (demo)");
+            System.out.println("8. Concatenar con otra playlist ");
             System.out.println("9. Reemplazar una canción");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
@@ -40,7 +40,7 @@ public class Main {
                     System.out.print("Nombre de la canción a agregar: ");
                     String cancion = scanner.nextLine();
                     playlist.agregarNodo(cancion);
-                    System.out.println("Canción agregada correctamente.");
+                    System.out.println("Canción agregada correctamente");
                 }
                 case 2 -> System.out.println("Número de canciones en la playlist: " + playlist.contadorElementos());
                 case 3 -> {
@@ -50,23 +50,23 @@ public class Main {
                     if (elemento != null) {
                         System.out.println("Canción en la posición " + pos + ": " + elemento);
                     } else {
-                        System.out.println("No existe ninguna canción en esa posición.");
+                        System.out.println("No existe ninguna canción en esa posición");
                     }
                 }
                 case 4 -> {
                     System.out.print("Nombre de la canción a buscar: ");
                     String buscada = scanner.nextLine();
                     System.out.println(playlist.contiene(buscada)
-                            ? "La canción SÍ está en la playlist."
-                            : "La canción NO está en la playlist.");
+                            ? "La canción SÍ está en la playlist"
+                            : "La canción NO está en la playlist");
                 }
                 case 5 -> System.out.println("Canciones en la playlist: " + playlist.elementos());
                 case 6 -> {
                     System.out.print("Nombre de la canción a eliminar: ");
                     String aEliminar = scanner.nextLine();
                     System.out.println(playlist.eliminarPorValor(aEliminar)
-                            ? "Canción eliminada."
-                            : "No se encontró esa canción.");
+                            ? "Canción eliminada"
+                            : "No se encontró esa canción");
                 }
                 case 7 -> {
                     System.out.print("Posición a eliminar (empieza en 0): ");
@@ -74,7 +74,7 @@ public class Main {
                     String eliminado = playlist.eliminarPorPosicion(posEliminar);
                     System.out.println(eliminado != null
                             ? "Se eliminó la canción: " + eliminado
-                            : "No existe ninguna canción en esa posición.");
+                            : "No existe ninguna canción en esa posición");
                 }
                 case 8 -> {
                     // Se crea una segunda playlist de ejemplo para mostrar la concatenación
@@ -92,11 +92,11 @@ public class Main {
                     System.out.print("Nuevo nombre de la canción: ");
                     String nueva = scanner.nextLine();
                     System.out.println(playlist.reemplazarPorValor(antigua, nueva)
-                            ? "Canción reemplazada correctamente."
-                            : "No se encontró la canción a reemplazar.");
+                            ? "Canción reemplazada correctamente"
+                            : "No se encontró la canción a reemplazar");
                 }
-                case 0 -> System.out.println("¡Hasta luego!");
-                default -> System.out.println("Opción no válida, inténtalo de nuevo.");
+                case 0 -> System.out.println("Hasta luego");
+                default -> System.out.println("Opción no válida, inténtalo de nuevo");
             }
 
         } while (opcion != 0);
@@ -236,7 +236,7 @@ public class Main {
             return false;
         }
 
-        // funcion para sacar (eliminar) el elemento que ocupa una posicion concreta en la lista
+        // funcion para sacar  el elemento que ocupa una posicion concreta en la lista
         public String eliminarPorPosicion(int posicion) {
             Nodo nodo = obtenerNodo(posicion);
             if (nodo == null) {
@@ -248,7 +248,6 @@ public class Main {
         }
 
         // funcion auxiliar que desconecta un nodo de la lista recolocando los punteros
-        // anterior/siguiente de sus vecinos (o actualizando primero/ultimo si hace falta)
         private void desenlazarNodo(Nodo nodo) {
             if (nodo.anterior != null) {
                 nodo.anterior.siguiente = nodo.siguiente;
@@ -293,8 +292,6 @@ public class Main {
         }
 
         // funcion para concatenar esta lista con otra lista, devolviendo una lista NUEVA
-        // (se crean nodos nuevos con los mismos datos para no compartir referencias
-        // entre las dos listas originales, evitando así que se corrompan entre sí)
         public ListaDoblementeEnlazada concatenar(ListaDoblementeEnlazada otraLista) {
             ListaDoblementeEnlazada listaResultado = new ListaDoblementeEnlazada();
 
